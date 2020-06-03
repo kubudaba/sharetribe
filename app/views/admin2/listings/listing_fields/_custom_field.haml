@@ -1,0 +1,11 @@
+.field-data.nested{data: {id: custom_field.id}}
+  %div
+    = custom_field.name(I18n.locale)
+  %div
+    = field_type_translation(custom_field.type)
+  .actions
+    %span.handle-move{"aria-hidden" => "true"}
+    = link_to delete_popup_admin2_listings_listing_field_path(custom_field), remote: true do
+      %span.remove
+    = link_to edit_admin2_listings_listing_field_path(custom_field), remote: true do
+      %span.edit

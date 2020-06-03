@@ -1,0 +1,62 @@
+- content_for :title do
+  = t('admin2.sidebar.listings.listing_fields')
+
+.content-card-header
+  %h1.content-card-header-title
+    = t('admin2.sidebar.listings.listing_fields')
+
+.content-card-section-container
+  %form.content-card-section-form
+    %section.content-card-section
+      %h2= t('admin2.listing_fields.info_header')
+      %p.ingress= t('admin2.listing_fields.info_text')
+
+      .form-group
+        .field-titles
+          %div= t('admin2.listing_fields.field_title')
+          %div= t('admin2.listing_fields.field_type')
+        .list-group
+          .field-data
+            %div= t('admin2.listing_fields.listing_title')
+            %div= t('admin2.listing_fields.field_title')
+            .actions
+              %span.handle-move.disabled{'aria-hidden' => true}
+              %span.remove.disabled{'aria-hidden' => true}
+              %span.edit.disabled{'aria-hidden' => true}
+          - if @price_in_use
+            .field-data
+              %div= t('admin2.listing_fields.types.price')
+              %div= t('admin2.listing_fields.types.price')
+              .actions
+                %span.handle-move.disabled{'aria-hidden' => true}
+                %span.remove.disabled{'aria-hidden' => true}
+                %span.edit.disabled{'aria-hidden' => true}
+          .field-data
+            %div= t('admin2.listing_fields.detailed_description')
+            %div= t('admin2.listing_fields.types.text')
+            .actions
+              %span.handle-move.disabled{'aria-hidden' => true}
+              %span.remove.disabled{'aria-hidden' => true}
+              %span.edit.disabled{'aria-hidden' => true}
+
+          = render 'custom'
+
+          .field-data
+            %div= t('admin2.listing_fields.expiration_date')
+            %div= t('admin2.listing_fields.types.date')
+            .actions
+              %span.handle-move.disabled{'aria-hidden' => true}
+              %span.remove.disabled{'aria-hidden' => true}
+              %span.edit.disabled{'aria-hidden' => true}
+          .field-data
+            %div= t('admin2.listing_fields.types.location')
+            %div= t('admin2.listing_fields.types.location')
+            .actions
+              %span.handle-move.disabled{'aria-hidden' => true}
+              %span.remove.disabled{'aria-hidden' => true}
+              %span.edit.disabled{'aria-hidden' => true}
+
+      %p.ingress
+        = link_to t('admin2.listing_fields.add_listing_type'), '#', 'data-target' => '#listingFieldsAddModal', 'data-toggle' => :modal
+
+= render 'admin2/listings/listing_fields/add_popup'
